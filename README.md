@@ -85,4 +85,85 @@ method.
 2. Install all required libraries in requirements.txt
 3. Install the required data set zip file, extract all, and create a folder called ’data’ to store it in.
 4. Make sure that the ’data’ folder is at the same depth as the other python files downloaded from the repository.
-2
+5. Run main.py
+
+Features: ALL NEIGHBORHOODS is a global function in main.py that contains a set of all of the neighborhood
+names in our chosen dataset. These neighborhood names will be useful for running many of the functions in the
+main.py file such as run find best path for time, run find best path for distance, and
+run find best path for cost.
+
+All the names in ALL NEIGHBORHOODS can be used in the functions in main.py when appropriate. The most
+important function in main.py is runner, because it is an interactive function that allows the TA to run whatever
+function they want with whatever inputs they want.
+
+The file is interactive, and the user will be asked to fill in the prompts. The file being interactive allows the user
+to have greater control over what functions they run and the parameters they pass into the function.
+
+- Start by answering the prompts.
+- Click the magnifying glass on the bottom left to zoom in.
+- The user could select the area of the network to analyze by clicking and dragging across the screen.
+- Analyzing the behavior of this network, notice that some of the links are highlighted in
+red. This represents the optimized path.
+- Once the display is closed, the user will be prompted and asked whether or not they want to continue performing
+calculations.
+- At the bottom of our main.py file, we also left a few print statements with neighborhood size estimates and their
+actual sizes commented out.
+
+
+# Discussion
+
+Going back to our research question, we can see that the functions run find best path for time,
+run find best path for distance, and run find best path for cost can help optimize the path we should take if
+we want to minimize the quantities mentioned in the function header. This is useful for customers that use ride-share
+apps such as Uber, because it may allow them to save money and time, depending on what their needs are for any
+particular travel. These algorithms may be especially useful for someone who is trying to save money or trying to
+make it to an important meeting on time. These may also be very useful for vacation planning, as people who are
+on vacation may want to see as many sights as possible, which may be spread out over a large distance. People who
+are on vacation may also have a budget they want to stay under and may want to save money, and they may also
+have limited time at their vacation destination, so they may also want to use their time efficiently to make the most
+of the time they have. In these situations, it is clear how the aforementioned functions above could be of great help.
+Some limitations we encountered while trying to display the graph was networkx’s implementation for spring layout.
+According to its documentation, spring layout ”Position[s] nodes using Fruchterman-Reingold force-directed algorithm.” In other words, it ”[treats] edges as springs holding nodes close, while treating nodes as repelling objects.”
+When we used this function, networkx would output a valid graph. However, many of the nodes were overlapping,
+and the text we used to name the nodes would overlap and block each other out.
+
+After changing spring layout and draw’s parameters, we were able to customize the colors and font sizes, which
+would help create a more aesthetically pleasing graph.
+
+Another limitation we found was when trying display the neighborhood size; to fix this we changed the size of
+the neighborhood in the display by using the functions we made to estimate neighborhood size. Furthermore, since
+the visualization is interactive, and one can zoom in and out of the graph to see certain features more clearly, which
+helped to negate many of the problems mentioned earlier.
+
+As for further exploration, we considered implementing a function that would plot the coordinates of the neighborhoods, allowing us to map out the structure of a region’s neighborhoods based on just a dataset of Uber rides in the
+area. One library that would help with this calculation would be the scikit library, and the MDS (Multi-Dimensional
+Scaling), which would find the coordinates of the nodes based on the distances between one nod and all other nodes.
+However, figuring out the structure of the neighborhoods using only the Uber data in the dataset was much harder
+than anticipated, partially because we did not have enough data, and we ended up scrapping the idea because we
+would have needed much more time in order to complete it. However, there is definitely room for further exploration,
+and we may come back to this idea in the future for our own personal exploration.
+
+One other fix we could have done would be to add a function that easily finds the selected neighborhoods. In
+our current implementation, after displaying the graph, it is quite difficult to locate the neighborhoods we’ve chosen,
+especially if its size was smaller than the others. Even though the graph is interactive and allows the user to zoom
+in, it is difficult to see where exactly the neighborhoods we chose are.
+
+In our estimation of neighborhood sizes, our estimate for ’Midtown’ is 2.544 while the actual size is 2.254 mi²
+according to Wikipedia. This is a 12.0884% difference, which is pretty accurate considering our computation strategy
+of taking the averages of all of the links. Other neighborhoods that had less links, however, were very inaccurate.
+However, despite the issues and setbacks discussed above, we were able to complete the project in a timely manner
+and achieve most of our initial objectives, and we believe as a group that the project went fairly well. We think that
+although there is room for improvement and future further exploration, the project was a success
+
+# References
+Usmani, Zeeshan-ul-hassan. \My Uber Drives." Kaggle, 23 Mar. 2017,
+https://www.kaggle.com/datasets/zusmani/uberdrives.
+
+Ohnesorge, Lauren. "Uber Defends Price Surge That Charged Durham Man $455 on Halloween."
+Bizjournals.com, 4 Nov. 2014, https://www.bizjournals.com/triangle/blog/techflash/
+2014/11/uber-defends-price-surge-durham-man-455-halloween.html.
+
+Felix, director. Dijkstras Shortest Path Algorithm Explained | With Example | Graph Theory.
+YouTube, YouTube, 26 Sept. 2020, https://www.youtube.com/watch?
+v=bZkzH5x0SKU&amp;ab_channel=FelixTechTips. Accessed 2 Apr. 2023.
+
